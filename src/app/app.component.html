@@ -1,0 +1,74 @@
+<div class="gradient-bg min-h-screen">
+  <div class="container mx-auto px-6 py-12 max-w-5xl">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-light text-slate-800 mb-3 tracking-tight">
+        Bill Splitter
+      </h1>
+      <p class="text-slate-500 font-light">
+        Split expenses effortlessly with friends and groups
+      </p>
+    </div>
+
+    <!-- Main Card -->
+    <div class="glass-card rounded-3xl minimal-shadow overflow-hidden">
+      <div class="p-8 lg:p-12">
+        <!-- Navigation Tabs -->
+        <div class="mb-12">
+          <div class="flex justify-center mb-8">
+            <div class="bg-slate-100 rounded-2xl p-1.5 inline-flex space-x-1">
+              <button
+                (click)="activeTab = 'people'"
+                [class]="getTabButtonClass('people')"
+                class="px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 whitespace-nowrap"
+              >
+                People
+              </button>
+              <button
+                (click)="activeTab = 'expenses'"
+                [class]="getTabButtonClass('expenses')"
+                class="px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 whitespace-nowrap"
+              >
+                Expenses
+              </button>
+              <button
+                (click)="activeTab = 'calculate'"
+                [class]="getTabButtonClass('calculate')"
+                class="px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 whitespace-nowrap"
+              >
+                Calculate
+              </button>
+            </div>
+          </div>
+
+          <!-- People Tab -->
+          <div *ngIf="activeTab === 'people'">
+            <app-people-list
+              (peopleChanged)="onPeopleChanged()"
+            ></app-people-list>
+          </div>
+
+          <!-- Expenses Tab -->
+          <div *ngIf="activeTab === 'expenses'">
+            <app-expenses></app-expenses>
+          </div>
+
+          <!-- Calculate Tab -->
+          <div *ngIf="activeTab === 'calculate'">
+            <app-calculate></app-calculate>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clear All Button -->
+    <div class="mt-12 text-center">
+      <button
+        (click)="clearAll()"
+        class="px-6 py-3 bg-red-50 text-red-600 border border-red-200 rounded-2xl hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-300 transition-colors duration-200 font-medium"
+      >
+        Clear All Data
+      </button>
+    </div>
+  </div>
+</div>
