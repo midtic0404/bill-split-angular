@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BillSplitService } from '../../services/bill-split.service';
@@ -12,8 +12,6 @@ import { Person } from '../../models/app.models';
   styleUrl: './people-list.component.css',
 })
 export class PeopleListComponent {
-  @Output() peopleChanged = new EventEmitter<void>();
-
   newPersonName = '';
   people: Person[] = [];
 
@@ -26,14 +24,12 @@ export class PeopleListComponent {
   addPerson(): void {
     if (this.billSplitService.addPerson(this.newPersonName)) {
       this.newPersonName = '';
-      this.peopleChanged.emit();
     }
   }
 
   removePerson(personId: string, personName: string): void {
     if (confirm(`Remove ${personName}?`)) {
       this.billSplitService.removePerson(personId);
-      this.peopleChanged.emit();
     }
   }
 }

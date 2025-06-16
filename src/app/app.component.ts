@@ -28,10 +28,6 @@ export class AppComponent {
       : 'text-slate-500 hover:text-slate-700';
   }
 
-  onPeopleChanged(): void {
-    // This can be used to trigger updates in other components if needed
-  }
-
   clearAll(): void {
     if (
       confirm(
