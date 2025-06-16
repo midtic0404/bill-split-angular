@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { BillSplitService } from '../../services/bill-split.service';
 import { SplitResults } from '../../models/app.models';
 
 @Component({
   selector: 'app-calculate',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './calculate.component.html',
   styleUrl: './calculate.component.css',
 })

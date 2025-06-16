@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { BillSplitService } from './services/bill-split.service';
 import { PeopleListComponent } from './components/people-list/people-list.component';
 import { ExpensesComponent } from './components/expenses/expenses.component';
@@ -9,11 +9,10 @@ import { CalculateComponent } from './components/calculate/calculate.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule,
     PeopleListComponent,
     ExpensesComponent,
-    CalculateComponent,
-  ],
+    CalculateComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

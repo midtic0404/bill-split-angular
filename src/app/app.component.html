@@ -21,40 +21,46 @@
                 (click)="activeTab = 'people'"
                 [class]="getTabButtonClass('people')"
                 class="px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 whitespace-nowrap"
-              >
+                >
                 People
               </button>
               <button
                 (click)="activeTab = 'expenses'"
                 [class]="getTabButtonClass('expenses')"
                 class="px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 whitespace-nowrap"
-              >
+                >
                 Expenses
               </button>
               <button
                 (click)="activeTab = 'calculate'"
                 [class]="getTabButtonClass('calculate')"
                 class="px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 whitespace-nowrap"
-              >
+                >
                 Calculate
               </button>
             </div>
           </div>
 
           <!-- People Tab -->
-          <div *ngIf="activeTab === 'people'">
-            <app-people-list></app-people-list>
-          </div>
+          @if (activeTab === 'people') {
+            <div>
+              <app-people-list></app-people-list>
+            </div>
+          }
 
           <!-- Expenses Tab -->
-          <div *ngIf="activeTab === 'expenses'">
-            <app-expenses></app-expenses>
-          </div>
+          @if (activeTab === 'expenses') {
+            <div>
+              <app-expenses></app-expenses>
+            </div>
+          }
 
           <!-- Calculate Tab -->
-          <div *ngIf="activeTab === 'calculate'">
-            <app-calculate></app-calculate>
-          </div>
+          @if (activeTab === 'calculate') {
+            <div>
+              <app-calculate></app-calculate>
+            </div>
+          }
         </div>
       </div>
     </div>
@@ -64,7 +70,7 @@
       <button
         (click)="clearAll()"
         class="px-6 py-3 bg-red-50 text-red-600 border border-red-200 rounded-2xl hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-300 transition-colors duration-200 font-medium"
-      >
+        >
         Clear All Data
       </button>
     </div>

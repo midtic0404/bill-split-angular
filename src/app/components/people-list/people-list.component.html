@@ -13,11 +13,11 @@
           placeholder="Enter name"
           class="flex-1 px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
           required
-        />
+          />
         <button
           type="submit"
           class="px-6 py-3 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300 transition-colors duration-200 font-medium"
-        >
+          >
           Add
         </button>
       </div>
@@ -26,55 +26,55 @@
 
   <!-- People List -->
   <div id="person-list">
-    <div *ngIf="people.length > 0; else noPeople">
-      <div class="text-center mb-6">
-        <h3 class="text-lg font-medium text-slate-700">
-          {{ people.length }}
-          {{ people.length === 1 ? "person" : "people" }} added
-        </h3>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div
-          *ngFor="let person of people"
-          class="bg-white rounded-2xl p-4 minimal-shadow hover-lift border border-slate-100"
-        >
-          <div class="flex items-center justify-between">
-            <span class="text-slate-800 font-medium">{{ person.name }}</span>
-            <button
-              (click)="removePerson(person.id, person.name)"
-              class="text-slate-400 hover:text-red-500 focus:outline-none transition-colors duration-200 p-1"
-            >
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+    @if (people.length > 0) {
+      <div>
+        <div class="text-center mb-6">
+          <h3 class="text-lg font-medium text-slate-700">
+            {{ people.length }}
+            {{ people.length === 1 ? "person" : "people" }} added
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          @for (person of people; track person) {
+            <div
+              class="bg-white rounded-2xl p-4 minimal-shadow hover-lift border border-slate-100"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
-            </button>
-          </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-800 font-medium">{{ person.name }}</span>
+                <button
+                  (click)="removePerson(person.id, person.name)"
+                  class="text-slate-400 hover:text-red-500 focus:outline-none transition-colors duration-200 p-1"
+                  >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          }
         </div>
       </div>
-    </div>
-
-    <ng-template #noPeople>
+    } @else {
       <div class="text-center py-12">
         <div
           class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"
-        >
+          >
           <svg
             class="w-8 h-8 text-slate-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-          >
+            >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -88,6 +88,7 @@
           Add some people to start splitting bills
         </p>
       </div>
-    </ng-template>
+    }
+
   </div>
 </div>

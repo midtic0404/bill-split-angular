@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { BillSplitService } from '../../services/bill-split.service';
 import { Person, Expense } from '../../models/app.models';
@@ -7,7 +7,7 @@ import { Person, Expense } from '../../models/app.models';
 @Component({
   selector: 'app-expenses',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './expenses.component.html',
   styleUrl: './expenses.component.css',
 })
