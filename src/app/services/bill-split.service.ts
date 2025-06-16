@@ -41,11 +41,27 @@ export class BillSplitService {
   }
 
   removePerson(personId: string): void {
-    const updatedPeople = this.peopleSubject.value.filter(
-      (p) => p.id !== personId
+    // Find the person to get their name before removing
+    const personToRemove = this.peopleSubject.value.find(
+      (p) => p.id === personId
     );
-    this.peopleSubject.next(updatedPeople);
-    this.saveToStorage();
+
+    if (personToRemove) {
+      // Remove the person from people array
+      const updatedPeople = this.peopleSubject.value.filter(
+        (p) => p.id !== personId
+      );
+
+      // Remove all expenses associated with this person
+      const updatedExpenses = this.expensesSubject.value.filter(
+        (e) => e.for_person !== personToRemove.name
+      );
+
+      // Update both subjects
+      this.peopleSubject.next(updatedPeople);
+      this.expensesSubject.next(updatedExpenses);
+      this.saveToStorage();
+    }
   }
 
   getPeople(): Person[] {
