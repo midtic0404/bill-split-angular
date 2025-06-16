@@ -37,7 +37,6 @@ export class BillSplitService {
     const updatedPeople = [...this.peopleSubject.value, person];
     this.peopleSubject.next(updatedPeople);
     this.saveToStorage();
-    console.log('Person added:', person, 'Current people:', updatedPeople);
     return true;
   }
 
@@ -154,7 +153,6 @@ export class BillSplitService {
     this.peopleSubject.next([]);
     this.expensesSubject.next([]);
     localStorage.removeItem(this.STORAGE_KEY);
-    console.log('All data cleared');
   }
 
   // Storage management
@@ -164,21 +162,17 @@ export class BillSplitService {
       expenses: this.expensesSubject.value,
     };
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
-    console.log('Data saved to localStorage:', data);
   }
 
   private loadFromStorage(): void {
     try {
       const savedData = localStorage.getItem(this.STORAGE_KEY);
-      console.log('Loading from localStorage:', savedData);
 
       if (savedData) {
         const data: AppData = JSON.parse(savedData);
-        console.log('Parsed data:', data);
 
         if (data.people && Array.isArray(data.people)) {
           this.peopleSubject.next(data.people);
-          console.log('Loaded people:', data.people);
         }
 
         if (data.expenses && Array.isArray(data.expenses)) {
@@ -188,13 +182,9 @@ export class BillSplitService {
             quantity: expense.quantity || 1, // Default to 1 if quantity is missing
           }));
           this.expensesSubject.next(expensesWithQuantity);
-          console.log('Loaded expenses:', expensesWithQuantity);
         }
-      } else {
-        console.log('No saved data found in localStorage');
       }
     } catch (error) {
-      console.error('Error loading from storage:', error);
       // Reset to empty arrays if there's an error
       this.peopleSubject.next([]);
       this.expensesSubject.next([]);
