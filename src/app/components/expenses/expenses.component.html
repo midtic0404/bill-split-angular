@@ -119,33 +119,48 @@
         <h4 class="text-lg font-medium text-slate-700 mb-4">Add New Item</h4>
         <form (ngSubmit)="addPersonExpense()" class="space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <input
-              type="text"
-              [(ngModel)]="newPersonExpense.description"
-              name="description"
-              placeholder="Item description"
-              class="px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
-              required
-            />
-            <input
-              type="number"
-              [(ngModel)]="newPersonExpense.amount"
-              name="amount"
-              placeholder="Price per item"
-              step="0.01"
-              min="0.01"
-              class="px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
-              required
-            />
-            <input
-              type="number"
-              [(ngModel)]="newPersonExpense.quantity"
-              name="quantity"
-              placeholder="Quantity"
-              min="1"
-              class="px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
-              required
-            />
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-2">
+                Item Description
+              </label>
+              <input
+                type="text"
+                [(ngModel)]="newPersonExpense.description"
+                name="description"
+                placeholder="e.g., Coffee, Lunch, Gas"
+                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-2">
+                Price Per Item ($)
+              </label>
+              <input
+                type="number"
+                [(ngModel)]="newPersonExpense.amount"
+                name="amount"
+                placeholder="0.00"
+                step="0.01"
+                min="0.01"
+                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-2">
+                Quantity
+              </label>
+              <input
+                type="number"
+                [(ngModel)]="newPersonExpense.quantity"
+                name="quantity"
+                placeholder="1"
+                min="1"
+                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
+                required
+              />
+            </div>
           </div>
           <button
             type="submit"
@@ -249,46 +264,67 @@
   <!-- Classic View -->
   <div *ngIf="showClassicView" class="space-y-8">
     <div class="bg-white rounded-2xl p-6 minimal-shadow">
+      <h4 class="text-lg font-medium text-slate-700 mb-6">Add New Expense</h4>
       <form (ngSubmit)="addClassicExpense()" class="space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <input
-            type="text"
-            [(ngModel)]="newClassicExpense.description"
-            name="description"
-            placeholder="Description"
-            class="px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
-            required
-          />
-          <input
-            type="number"
-            [(ngModel)]="newClassicExpense.amount"
-            name="amount"
-            placeholder="Price per item"
-            step="0.01"
-            min="0.01"
-            class="px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
-            required
-          />
-          <input
-            type="number"
-            [(ngModel)]="newClassicExpense.quantity"
-            name="quantity"
-            placeholder="Quantity"
-            min="1"
-            class="px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
-            required
-          />
-          <select
-            [(ngModel)]="newClassicExpense.forPerson"
-            name="forPerson"
-            class="px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800"
-            required
-          >
-            <option value="">Select person</option>
-            <option *ngFor="let person of people" [value]="person.name">
-              {{ person.name }}
-            </option>
-          </select>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">
+              Item Description
+            </label>
+            <input
+              type="text"
+              [(ngModel)]="newClassicExpense.description"
+              name="description"
+              placeholder="e.g., Coffee, Lunch, Gas"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">
+              Price Per Item ($)
+            </label>
+            <input
+              type="number"
+              [(ngModel)]="newClassicExpense.amount"
+              name="amount"
+              placeholder="0.00"
+              step="0.01"
+              min="0.01"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">
+              Quantity
+            </label>
+            <input
+              type="number"
+              [(ngModel)]="newClassicExpense.quantity"
+              name="quantity"
+              placeholder="1"
+              min="1"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">
+              Person
+            </label>
+            <select
+              [(ngModel)]="newClassicExpense.forPerson"
+              name="forPerson"
+              class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800"
+              required
+            >
+              <option value="">Choose a person</option>
+              <option *ngFor="let person of people" [value]="person.name">
+                {{ person.name }}
+              </option>
+            </select>
+          </div>
         </div>
         <button
           type="submit"
