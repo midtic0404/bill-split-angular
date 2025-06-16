@@ -13,13 +13,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background-color: #e6d7c3;
 }
 
 /* Custom utility classes */
 .glass-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(250, 248, 240, 0.95);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(139, 69, 19, 0.1);
 }
 
 .minimal-shadow {
@@ -36,7 +37,7 @@ body {
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: linear-gradient(135deg, #e6d7c3 0%, #d4c4a8 100%);
 }
 
 /* Additional utility classes if needed */
@@ -54,4 +55,61 @@ body {
 
 .space-y-3 > * + * {
   margin-top: 0.75rem;
+}
+
+/* Warm Theme Colors */
+.text-warm-brown {
+  color: #5d4037 !important;
+}
+
+.text-warm-brown-dark {
+  color: #3e2723 !important;
+}
+
+.text-warm-brown-light {
+  color: #8d6e63 !important;
+}
+
+.bg-warm-brown {
+  background-color: #8d6e63 !important;
+}
+
+.bg-warm-brown-dark {
+  background-color: #5d4037 !important;
+}
+
+.bg-warm-brown-light {
+  background-color: #bcaaa4 !important;
+}
+
+.bg-warm-cream {
+  background-color: #faf8f0 !important;
+}
+
+.border-warm-brown {
+  border-color: #8d6e63 !important;
+}
+
+.border-warm-brown-light {
+  border-color: #bcaaa4 !important;
+}
+
+.hover\:bg-warm-brown:hover {
+  background-color: #8d6e63 !important;
+}
+
+.hover\:bg-warm-brown-dark:hover {
+  background-color: #5d4037 !important;
+}
+
+.hover\:text-warm-brown:hover {
+  color: #5d4037 !important;
+}
+
+.focus\:ring-warm-brown:focus {
+  --tw-ring-color: #8d6e63 !important;
+}
+
+.placeholder-warm-brown::placeholder {
+  color: #8d6e63 !important;
 }

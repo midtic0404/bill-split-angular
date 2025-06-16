@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-
 import { FormsModule } from '@angular/forms';
 import { BillSplitService } from '../../services/bill-split.service';
 import { Person, Expense } from '../../models/app.models';
@@ -43,7 +42,7 @@ export class ExpensesComponent {
 
   getToggleButtonClass(isClassic: boolean): string {
     const isActive = isClassic === this.showClassicView;
-    return isActive ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500';
+    return isActive ? 'bg-warm-brown text-white shadow-sm' : 'text-warm-brown';
   }
 
   selectPersonForExpenses(personName: string): void {

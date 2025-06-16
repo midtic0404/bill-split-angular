@@ -1,7 +1,7 @@
 .glass-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(250, 248, 240, 0.95);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(139, 69, 19, 0.1);
 }
 
 .minimal-shadow {
@@ -18,5 +18,5 @@
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: linear-gradient(135deg, #e6d7c3 0%, #d4c4a8 100%);
 }

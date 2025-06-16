@@ -1,0 +1,7 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Always follow the latest Angular best practice in this application.
+Always put component html in a component template file and not directly in the component file.

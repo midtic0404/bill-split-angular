@@ -1,8 +1,8 @@
 <div class="space-y-8">
   <!-- Add Person Section -->
   <div class="text-center">
-    <h2 class="text-2xl font-light text-slate-800 mb-2">Add People</h2>
-    <p class="text-slate-500 text-sm mb-8">Who's joining the group?</p>
+    <h2 class="text-2xl font-light text-warm-brown-dark mb-2">Add People</h2>
+    <p class="text-warm-brown text-sm mb-8">Who's joining the group?</p>
 
     <form (ngSubmit)="addPerson()" class="max-w-md mx-auto">
       <div class="flex gap-3">
@@ -11,13 +11,13 @@
           [(ngModel)]="newPersonName"
           name="name"
           placeholder="Enter name"
-          class="flex-1 px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-slate-300 focus:border-transparent text-slate-800 placeholder-slate-400"
+          class="flex-1 px-4 py-3 bg-white border border-warm-brown-light rounded-2xl focus:outline-none focus:ring-2 focus:ring-warm-brown focus:border-transparent text-warm-brown-dark placeholder-warm-brown"
           required
-          />
+        />
         <button
           type="submit"
-          class="px-6 py-3 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300 transition-colors duration-200 font-medium"
-          >
+          class="px-6 py-3 bg-warm-brown text-white rounded-2xl hover:bg-warm-brown-dark focus:outline-none focus:ring-2 focus:ring-warm-brown transition-colors duration-200 font-medium"
+        >
           Add
         </button>
       </div>
@@ -27,68 +27,69 @@
   <!-- People List -->
   <div id="person-list">
     @if (people.length > 0) {
-      <div>
-        <div class="text-center mb-6">
-          <h3 class="text-lg font-medium text-slate-700">
-            {{ people.length }}
-            {{ people.length === 1 ? "person" : "people" }} added
-          </h3>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          @for (person of people; track person) {
-            <div
-              class="bg-white rounded-2xl p-4 minimal-shadow hover-lift border border-slate-100"
-              >
-              <div class="flex items-center justify-between">
-                <span class="text-slate-800 font-medium">{{ person.name }}</span>
-                <button
-                  (click)="removePerson(person.id, person.name)"
-                  class="text-slate-400 hover:text-red-500 focus:outline-none transition-colors duration-200 p-1"
-                  >
-                  <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          }
-        </div>
+    <div>
+      <div class="text-center mb-6">
+        <h3 class="text-lg font-medium text-warm-brown-dark">
+          {{ people.length }}
+          {{ people.length === 1 ? "person" : "people" }} added
+        </h3>
       </div>
-    } @else {
-      <div class="text-center py-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        @for (person of people; track person) {
         <div
-          class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"
-          >
-          <svg
-            class="w-8 h-8 text-slate-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          class="bg-white rounded-2xl p-4 minimal-shadow hover-lift border border-warm-brown-light"
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-warm-brown-dark font-medium">{{
+              person.name
+            }}</span>
+            <button
+              (click)="removePerson(person.id, person.name)"
+              class="text-warm-brown hover:text-red-500 focus:outline-none transition-colors duration-200 p-1"
             >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m9 5.197v1M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-            ></path>
-          </svg>
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
-        <p class="text-slate-600 font-medium mb-1">No people added yet</p>
-        <p class="text-slate-400 text-sm">
-          Add some people to start splitting bills
-        </p>
+        }
       </div>
+    </div>
+    } @else {
+    <div class="text-center py-12">
+      <div
+        class="w-16 h-16 bg-warm-cream rounded-full flex items-center justify-center mx-auto mb-4 border border-warm-brown-light"
+      >
+        <svg
+          class="w-8 h-8 text-warm-brown"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m9 5.197v1M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+          ></path>
+        </svg>
+      </div>
+      <p class="text-warm-brown-dark font-medium mb-1">No people added yet</p>
+      <p class="text-warm-brown text-sm">
+        Add some people to start splitting bills
+      </p>
+    </div>
     }
-
   </div>
 </div>

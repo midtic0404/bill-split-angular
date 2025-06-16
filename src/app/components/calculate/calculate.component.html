@@ -1,12 +1,14 @@
 <div class="space-y-8">
   <!-- Header -->
   <div class="text-center">
-    <h2 class="text-2xl font-light text-slate-800 mb-2">Calculate Split</h2>
-    <p class="text-slate-500 text-sm mb-8">See how much everyone owes</p>
+    <h2 class="text-2xl font-light text-warm-brown-dark mb-2">
+      Calculate Split
+    </h2>
+    <p class="text-warm-brown text-sm mb-8">See how much everyone owes</p>
 
     <button
       (click)="calculateSplit()"
-      class="px-8 py-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300 text-lg font-medium transition-colors duration-200 hover-lift"
+      class="px-8 py-4 bg-warm-brown text-white rounded-2xl hover:bg-warm-brown-dark focus:outline-none focus:ring-2 focus:ring-warm-brown text-lg font-medium transition-colors duration-200 hover-lift"
     >
       Calculate Split
     </button>
@@ -38,14 +40,14 @@
     } @if (results && !error) {
     <div class="space-y-8">
       <!-- Summary -->
-      <div class="bg-slate-100 border border-slate-200 rounded-3xl p-8">
-        <h3 class="text-2xl font-light text-slate-800 mb-6 text-center">
+      <div class="bg-warm-cream border border-warm-brown-light rounded-3xl p-8">
+        <h3 class="text-2xl font-light text-warm-brown-dark mb-6 text-center">
           Summary
         </h3>
         <div class="text-center">
           <div>
-            <p class="text-slate-600 font-medium mb-2">Total Amount</p>
-            <p class="text-4xl font-bold text-slate-900">
+            <p class="text-warm-brown font-medium mb-2">Total Amount</p>
+            <p class="text-4xl font-bold text-warm-brown-dark">
               ${{ results.total_amount.toFixed(2) }}
             </p>
           </div>
@@ -53,25 +55,25 @@
       </div>
       <!-- What Each Person Pays -->
       <div
-        class="bg-white border border-slate-200 rounded-3xl p-8 minimal-shadow"
+        class="bg-white border border-warm-brown-light rounded-3xl p-8 minimal-shadow"
       >
-        <h3 class="text-xl font-medium text-slate-700 mb-6 text-center">
+        <h3 class="text-xl font-medium text-warm-brown-dark mb-6 text-center">
           What Each Person Pays
         </h3>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           @for (person of getPersonTotalsArray(); track person.name) {
           <div
-            class="bg-slate-50 rounded-2xl p-6 border border-slate-100 text-center hover:border-slate-200 transition-colors duration-200"
+            class="bg-warm-cream rounded-2xl p-6 border border-warm-brown-light text-center hover:border-warm-brown transition-colors duration-200"
           >
             <div class="mb-4">
-              <h4 class="text-xl font-medium text-slate-800">
+              <h4 class="text-xl font-medium text-warm-brown-dark">
                 {{ person.name || "Unknown Person" }}
               </h4>
             </div>
             <div class="mb-2">
-              <p class="text-slate-500 text-sm font-medium">Your total:</p>
-              <p class="text-3xl font-bold text-slate-900">
+              <p class="text-warm-brown text-sm font-medium">Your total:</p>
+              <p class="text-3xl font-bold text-warm-brown-dark">
                 ${{ (person.total || 0).toFixed(2) }}
               </p>
             </div>
@@ -79,16 +81,16 @@
           }
         </div>
         <div
-          class="mt-6 text-center text-slate-500 text-sm bg-slate-50 rounded-2xl p-4"
+          class="mt-6 text-center text-warm-brown text-sm bg-warm-cream rounded-2xl p-4 border border-warm-brown-light"
         >
           Each person pays only for what they ordered
         </div>
       </div>
     </div>
     } @if (!results && !error) {
-    <div class="text-center py-16 text-slate-400">
+    <div class="text-center py-16 text-warm-brown">
       <div
-        class="w-20 h-20 mx-auto mb-6 bg-slate-100 rounded-full flex items-center justify-center"
+        class="w-20 h-20 mx-auto mb-6 bg-warm-cream rounded-full flex items-center justify-center border border-warm-brown-light"
       >
         <svg
           class="w-10 h-10"
@@ -104,7 +106,9 @@
           ></path>
         </svg>
       </div>
-      <p class="text-lg font-medium mb-2">Ready to Calculate</p>
+      <p class="text-lg font-medium mb-2 text-warm-brown-dark">
+        Ready to Calculate
+      </p>
       <p class="text-sm">
         Click "Calculate Split" to see how to split the bills
       </p>
