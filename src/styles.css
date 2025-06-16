@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
 /* Global styles for Bill Splitter Angular App */
 
 * {
@@ -9,6 +12,31 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Custom utility classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.minimal-shadow {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.hover-lift {
+  transition: all 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
 /* Additional utility classes if needed */
